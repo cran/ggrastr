@@ -29,6 +29,17 @@ plot + rasterise(geom_point(), dpi = 5, dev = "ragg")
 plot + rasterise(geom_point(), dpi = 5, dev = "ragg_png")
 
 ## -----------------------------------------------------------------------------
+## set ggrastr.default.dpi with options()
+options(ggrastr.default.dpi=750)
+
+plot <- ggplot(diamonds, aes(carat, price, colour = cut))
+new_plot = plot + rasterise(geom_point()) + theme(aspect.ratio = 1)
+print(new_plot)
+
+## set back to default 300
+options(ggrastr.default.dpi=300)
+
+## -----------------------------------------------------------------------------
 # Facets won't warp points
 set.seed(123)
 plot + rasterise(geom_point(), dpi = 300) + facet_wrap(~ sample(1:3, nrow(diamonds), 2))

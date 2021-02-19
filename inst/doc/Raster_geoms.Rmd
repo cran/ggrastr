@@ -60,6 +60,22 @@ plot + rasterise(geom_point(), dpi = 5, dev = "ragg_png")
 ```
 
 
+### Set the parameter 'dpi' globally with options(ggrastr.default.dpi=N)
+
+The parameter `dpi` is an integer which sets the desired resolution in dots per inch. With ggrastr versions `>=0.2.2`, users can set this parameter globally, using [options()](https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html). In the following example, plots will be rendered with `dpi=750` after the user sets this with `options(ggrastr.default.dpi=750)`:
+
+```{r}
+## set ggrastr.default.dpi with options()
+options(ggrastr.default.dpi=750)
+
+plot <- ggplot(diamonds, aes(carat, price, colour = cut))
+new_plot = plot + rasterise(geom_point()) + theme(aspect.ratio = 1)
+print(new_plot)
+
+## set back to default 300
+options(ggrastr.default.dpi=300)
+```
+
 ### Raserized plots with facet_wrap()
 
 Facets are rendered correctly without users having to adjust the width/height settings.
@@ -73,7 +89,7 @@ plot + rasterise(geom_point(), dpi = 300) + facet_wrap(~ sample(1:3, nrow(diamon
 
 
 
-### Points: Rasterize scatterplots with geom_point_rast()
+### Points: Rasterize scatter plots with geom_point_rast()
 Sometimes you need to publish a figure in a vector format:
 ```{r, fig.width=4, fig.height=4}
 library(ggplot2)
@@ -124,9 +140,9 @@ PrintFileSize(gg_rast, 'Raster')
 PrintFileSize(gg_vec, 'Vector')
 ```
 
-### Jitter: Rasterize jittered scatterplots with geom_jitter_rast()
+### Jitter: Rasterize jittered scatter plots with geom_jitter_rast()
 
-Just like the example above with`geom_point_rast()`, users may also opt to create rasterized scatterplots with jitter. The geom `geom_jitter_rast()` is similar to `ggplot2::geom_jitter()`, but it creates a rasterized layer:
+Just like the example above with`geom_point_rast()`, users may also opt to create rasterized scatter plots with jitter. The geom `geom_jitter_rast()` is similar to `ggplot2::geom_jitter()`, but it creates a rasterized layer:
 
 
 ```{r, fig.width=4, fig.height=4}
@@ -168,7 +184,7 @@ PrintFileSize(gg_tile_vec, 'Vector')
 
 
 
-### Violinplots: Rasterize violin plots with geom_violin_rast()
+### Violin plots: Rasterize violin plots with geom_violin_rast()
 
 One can see a similar effect with violin plots:
 
@@ -189,9 +205,9 @@ PrintFileSize(gg_tile_vec, 'Vector')
 
 
 
-### Boxplots: Jitter outliers and rasterize boxplots with geom_boxplot_jitter
+### Box plots: Jitter outliers and rasterize box plots with geom_boxplot_jitter
 
-Another type of plots with a potentially large number of small objects is geom_boxplot:
+Another type of plot with a potentially large number of small objects is geom_boxplot:
 ```{r, fig.width=5, fig.height=4}
 library(ggplot2)
 library(ggrastr)
