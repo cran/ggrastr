@@ -4,11 +4,11 @@
 
 # ggrastr
 
-Provides a set of ggplot2 [geoms](https://ggplot2.tidyverse.org/reference/#section-geoms) to rasterize only specific layers of the plot (e.g. large scatter plots with many points), while keeping all labels and text in vector format. This allows users to keep plots within a reasonable size limit without losing the vector properties of scale-sensitive information. 
+Rasterize only specific layers of a [ggplot2 plot](https://ggplot2.tidyverse.org/) (for instance, large scatter plots with many points) while keeping all labels and text in vector format. This allows users to keep plots within a reasonable size limit without losing the vector properties of scale-sensitive information. 
 
 ## Installation
 
-To install the stable version from CRAN, use:
+To install the stable version from [CRAN](https://CRAN.R-project.org/package=ggrastr), use:
 
 ```r
 install.packages('ggrastr')
@@ -31,7 +31,7 @@ For more details and examples, see the **vignettes:**
 
 ## Geoms provided
 
-We alo provide wrappers for several geoms to guarantee compatibility with an older version of `ggrastr`. However, we encourage users to use the `rasterise()` function instead.
+We also provide wrappers for several geoms to guarantee compatibility with an older version of `ggrastr`. However, we encourage users to use the `rasterise()` function instead.
 
 * `geom_point_rast`: raster scatter plots
 * `geom_jitter_rast`: raster jittered scatter plots
@@ -58,7 +58,7 @@ To ensure that Cairo works, try running `Cairo::Cairo(type='raster'); dev.off()`
 If you find `ggrastr` useful for your publication, please cite:
 
 ```
-Viktor Petukhov, Teun van den Brand and Evan Biederstedt (2020).
-ggrastr: Raster Layers for 'ggplot2'. R package version 0.2.1.
+Viktor Petukhov, Teun van den Brand and Evan Biederstedt (2021).
+ggrastr: Raster Layers for 'ggplot2'. R package version 0.2.3.
 https://CRAN.R-project.org/package=ggrastr
 ```
