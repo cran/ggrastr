@@ -1,4 +1,4 @@
-fb69d0da5077c34536ebf9a06455d669 *DESCRIPTION
+7acc9060b61f9e3c150ee1a8f4c35eeb *DESCRIPTION
 687c6924c41d553ceacac4178eeb0dc5 *LICENSE
 769e943b731a955b9ab02758ea3b0875 *NAMESPACE
 b711df3d63d5c6b93a27b0a0fb52cd53 *R/geom-beeswarm-rast.R
@@ -8,13 +8,13 @@ f65f8bdb9084b7f8e0c8fb1110dcc6af *R/geom-point-rast.R
 59c4c8f66414a432de1afb75f1b0dc14 *R/geom-quasirandom-rast.R
 d1a395da4d24706eedc372dd12c06280 *R/geom-tile-rast.R
 015491a5011dc7b807b7fbf54ed8d454 *R/geom-violin-rast.R
-b18504f9d3d5545ddd5f8280dea90fe1 *R/rasterise.R
+5c1d8233671d511d48297393ac00aed9 *R/rasterise.R
 80b0841a7596f0d84e786171fb31f9be *R/utils.R
-0a57c7b9528e6eff5f7885e1dbc1dc66 *README.md
-cf9342c32115545470de59bfb1fda29e *build/vignette.rds
+fa2dd5d5c0a3918a9cbfcd03cdcbf647 *README.md
+bdc51a54154e9144a15ba8c2d8b3f773 *build/vignette.rds
 ad70356b4aee4ee700797824555c8c9d *inst/doc/Raster_geoms.R
 0a3aff6ca1e066ae08394eaf2f270841 *inst/doc/Raster_geoms.Rmd
-04693eef00acd38948c188fa0398b77f *inst/doc/Raster_geoms.html
+dc712c833bc38dd6381d9dd991b51a85 *inst/doc/Raster_geoms.html
 162a540882eaabf728630ec8f181c3de *man/geom_beeswarm_rast.Rd
 1de1bc0245a43da7d8e29d00167ddf09 *man/geom_boxplot_jitter.Rd
 4edd58c5bf9dedef30f31b66e09d17bc *man/geom_jitter_rast.Rd
