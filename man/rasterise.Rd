@@ -2,43 +2,52 @@
 % Please edit documentation in R/rasterise.R
 \name{rasterise}
 \alias{rasterise}
+\alias{rasterise.Layer}
+\alias{rasterise.list}
+\alias{rasterise.ggplot}
 \alias{rasterize}
 \title{Rasterise ggplot layers
-Takes a ggplot layer as input and renders their graphical output as a raster.}
+Takes a ggplot object or a layer as input and renders their graphical output as a raster.}
 \usage{
-rasterise(
-  layer,
-  dpi = getOption("ggrastr.default.dpi"),
+rasterise(input, ...)
+
+\method{rasterise}{Layer}(input, dpi = NULL, dev = "cairo", scale = 1, ...)
+
+\method{rasterise}{list}(input, dpi = NULL, dev = "cairo", scale = 1, ...)
+
+\method{rasterise}{ggplot}(
+  input,
+  layers = c("Point", "Tile"),
+  dpi = NULL,
   dev = "cairo",
-  scale = 1
+  scale = 1,
+  ...
 )
 
-rasterize(
-  layer,
-  dpi = getOption("ggrastr.default.dpi"),
-  dev = "cairo",
-  scale = 1
-)
+rasterize(input, ...)
 }
 \arguments{
-\item{layer}{A \code{Layer} object, typically constructed with a call to a
-\code{geom_*()} or \code{stat_*()} function.}
+\item{input}{ggplot plot object to rasterize}
+
+\item{...}{other arguments}
 
 \item{dpi}{integer Sets the desired resolution in dots per inch (default=NULL).}
 
 \item{dev}{string Specifies the device used, which can be one of: \code{"cairo"}, \code{"ragg"} or \code{"ragg_png"} (default="cairo").}
 
 \item{scale}{numeric Scaling factor to modify the raster object size (default=1). The parameter 'scale=1' results in an object size that is unchanged, 'scale'>1 increase the size, and 'scale'<1 decreases the size. These parameters are passed to 'height' and 'width' of grid::grid.raster(). Please refer to 'rasterise()' and 'grid::grid.raster()' for more details.}
+
+\item{layers}{list of layer types that should be rasterized}
 }
 \value{
 A modified \code{Layer} object.
 }
 \description{
 Rasterise ggplot layers
-Takes a ggplot layer as input and renders their graphical output as a raster.
+Takes a ggplot object or a layer as input and renders their graphical output as a raster.
 }
 \details{
-The default \code{dpi} (\code{NULL} (i.e. let the device decide)) can conveniently be controlled by setting the option \code{"ggrastr.default.dpi"} (e.g. \code{option("ggrastr.default.dpi", 30)} for drafting).
+The default \code{dpi} (\code{NULL} (i.e. let the device decide)) can conveniently be controlled by setting the option \code{"ggrastr.default.dpi"} (e.g. \code{options("ggrastr.default.dpi" = 30)} for drafting).
 }
 \examples{
 require(ggplot2)
@@ -58,7 +67,6 @@ ggplot(diamonds, aes(carat, depth, z = price)) +
 # The `scale` argument allows you to render a 'big' plot in small window, or vice versa.
 ggplot(faithful, aes(eruptions, waiting)) +
   rasterise(geom_point(), scale = 4)
-
 }
 \author{
 Teun van den Brand <t.vd.brand@nki.nl>
